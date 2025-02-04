@@ -13,7 +13,45 @@
 </head>
 
 <body>
+    <div class="container text-center mt-5">
+        <h1>Bốc Thăm Con Số</h1>
+        <p>Nhấn vào một thẻ số bên dưới để nhận thông điệp tương ứng.</p>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 d-flex flex-wrap justify-content-center">
+                <!-- Tạo các thẻ số -->
+                <script>
+                    document.write('<div class="d-flex flex-wrap gap-3">');
+                    for (let i = 1; i <= 10; i++) {
+                        document.write(`
+                            <button class="btn btn-outline-primary p-3" style="width: 60px; height: 60px; font-size: 1.5rem;" onclick="drawNumber(${i})">
+                                ${i}
+                            </button>
+                        `);
+                    }
+                    document.write('</div>');
+                </script>
+            </div>
+        </div>
+        <p id="result" class="mt-4 fw-bold"></p>
+    </div>
+    <script>
+        function drawNumber(selectedNum) {
+            const messages = {
+                1: "Bạn sẽ gặp may mắn hôm nay!",
+                2: "Một cơ hội mới đang chờ bạn!",
+                3: "Cẩn thận với quyết định quan trọng!",
+                4: "Hãy tận hưởng niềm vui với bạn bè!",
+                5: "Sự kiên nhẫn sẽ mang lại thành công!",
+                6: "Bạn sẽ nhận được một tin vui bất ngờ!",
+                7: "Một thử thách đang đến, nhưng bạn sẽ vượt qua!",
+                8: "Đừng ngại thử những điều mới!",
+                9: "Hôm nay là ngày tuyệt vời để học hỏi!",
+                10: "Sự chăm chỉ của bạn sẽ được đền đáp!"
+            };
 
+            document.getElementById("result").innerHTML = `Bạn đã chọn số <strong>${selectedNum}</strong> - ${messages[selectedNum]}`;
+        }
+    </script>
 </body>
 
 </html>
